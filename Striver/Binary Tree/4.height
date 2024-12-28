@@ -1,0 +1,9 @@
+int maxht(Treenode* root){
+if(root==NULL){
+return 0;
+}
+int l=maxht(root->left);
+int r=maxht(root->right);
+return 1+max(l,r);
+
+}

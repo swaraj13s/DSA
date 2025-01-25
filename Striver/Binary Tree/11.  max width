@@ -1,0 +1,20 @@
+int widthOfBinaryTree(TreeNode* root) {
+        queue<pair<TreeNode*,int>> q;
+        q.push({root,0});
+        long ans=0;
+        while(!q.empty()){
+            int n=q.size();
+            long st=q.front().second;
+            long e=q.back().second;
+            ans=max(ans,e-st+1);
+            for(int i=0;i<n;i++){
+                TreeNode* p=q.front().first;
+                long j=q.front().second;
+                q.pop();
+                if(p->left) q.push({p->left,2*j+1});
+                if(p->right) q.push({p->right,2*j+2});
+
+            }
+        }
+        return ans;
+    }

@@ -1,0 +1,26 @@
+ void help(vector<vector<int>> &res,vector<int> &curr,Node* root){
+        if(root==NULL){
+            return ;
+        }
+        
+        curr.push_back(root->data);
+        if(root->left==NULL && root->right==NULL){
+            res.push_back(curr);
+        }
+        
+        
+            help(res,curr,root->left);
+            help(res,curr,root->right);
+            
+        
+        
+        curr.pop_back();
+    }
+    vector<vector<int>> Paths(Node* root) {
+        // code here
+        vector<vector<int>> res;
+        vector<int> curr;
+        help(res,curr,root);
+        
+        return res;
+    }
